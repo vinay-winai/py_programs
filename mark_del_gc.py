@@ -7,10 +7,11 @@ sweep_run_size = 500_000 # ideally choose this size in same order of magnitude a
 
 # mimicing the receiving of the item to be processed
 while item_del_count < sweep_run_size:
-    item_index = random.randint(0, len(item_stream) - 1)
+    item = random.randint(0, len(item_stream) - 1)
 # here to keep it simple, just assume that it produces unique integer every time even though it doesn't.
 # -------------------------------------------------------------
 # mark
+    item_index = item_stream.index(item)
     item_stream[item_index] = mark_del
     item_del_count += 1
     # do some processing
