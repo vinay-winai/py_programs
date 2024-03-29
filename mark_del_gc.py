@@ -1,13 +1,13 @@
 #setup
 import random
-item_stream = list(range(1_000_000)) # possibly new items will be added to the stream.
-mark_del = -1 # any value that is not expected in the dynamic array.
+item_stream = list(range(1,1_000_001)) # possibly new items will be added to the stream.
+mark_del = 0 # any value that is not expected in the dynamic array.
 item_del_count = 0
 sweep_run_size = 500_000 # ideally choose this size in same order of magnitude as the dynamic array.
 
 # mimicing the receiving of the item to be processed
 while item_del_count < sweep_run_size:
-    item = random.randint(0, len(item_stream) - 1)
+    item = random.randint(1, len(item_stream))
 # here to keep it simple, just assume that it produces unique integer every time even though it doesn't.
 # -------------------------------------------------------------
 # mark
