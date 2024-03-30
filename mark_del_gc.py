@@ -1,3 +1,4 @@
+# https://blog.deviant.works/make-deletions-in-arrays-blazingly-fast - Article link
 # setup
 item_stream = list(range(1,10_001)) # possibly new items will be added to the stream.
 mark_del = 0 # any value that is not expected in the dynamic array.
@@ -27,4 +28,4 @@ if item_del_count >= sweep_run_size:
     new_item_stream = [item for item in item_stream if item != mark_del]
     # pause appending of items to the dynamic array, add them into a temp buffer.
     item_stream = new_item_stream
-    print(item_stream)
+    print(len(item_stream))
