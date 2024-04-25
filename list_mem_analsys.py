@@ -9,7 +9,18 @@ import numpy as np
 arr = array.array('L', list(range(1,1_000_001)))
 ids = [id(i) for i in arr]
 
-discons = []
+discons = []*5
+
+def least_5(arr, val):
+    if len(arr) < 5:
+        arr.append(val)
+        return
+    last = arr[-1]
+    if last <= val:
+        last = val
+        if last != val:
+            arr.sort()
+
 def make_contiguous_test():
     curr_chunk = 0
 
@@ -20,7 +31,7 @@ def make_contiguous_test():
         if diff == 32:
             curr_chunk+=1
             return acc + 1
-        discons.append(curr_chunk)
+        least_5(discons, curr_chunk)
         curr_chunk = 0
         return acc
     return inner
@@ -32,4 +43,4 @@ next(iter2, None)
 pairs = zip(iter1, iter2)
 result = reduce(continuity_test, pairs, 0)
 print(f"Number of pairs with a difference of 32: {result}")
-print(sorted(discons)[:20])
+print(discons)
