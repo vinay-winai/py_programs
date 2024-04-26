@@ -6,7 +6,7 @@ import numpy as np
 
 # arr = list(range(1, 1_000_001))
 # arr = np.arange(1, 1_000_001)
-arr = array.array('L', list(range(1,1_000_001)))
+arr = array.array('L', range(1,1_000_001))
 ids = [id(i) for i in arr]
 
 discons = []*5
